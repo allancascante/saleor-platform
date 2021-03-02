@@ -1,0 +1,14 @@
+apiVersion: networking.k8s.io/v1
+kind: NetworkPolicy
+metadata:
+  creationTimestamp: null
+  name: saleorplatform_saleor-backend-tier
+spec:
+  ingress:
+    - from:
+        - podSelector:
+            matchLabels:
+              io.kompose.network/saleorplatform_saleor-backend-tier: "true"
+  podSelector:
+    matchLabels:
+      io.kompose.network/saleorplatform_saleor-backend-tier: "true"
